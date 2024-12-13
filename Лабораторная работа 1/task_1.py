@@ -2,20 +2,22 @@ import doctest
 
 
 class Door:
+    """
+    Данный класс описывает дверь
+    >>> door = Door(True, True, [3, 4, 5, 0])
+    >>> door.switch_status()
+    >>> print(door.door_status)
+    False
+    >>> door.set_pincode([0, 5, 2, 7, 8])
+    >>> print(door.pincode)
+    [0, 5, 2, 7, 8]
+    """
     def __init__(self, door_status: bool, door_lock: bool, pincode: list):
         """
-        Данный класс описывает дверь
-        :param door_status:
-        :param door_lock:
-        :param pincode:
-
-        >>> door = Door(True, True, [3, 4, 5, 0])
-        >>> door.switch_status()
-        >>> print(door.door_status)
-        False
-        >>> door.set_pincode([0, 5, 2, 7, 8])
-        >>> print(door.pincode)
-        [0, 5, 2, 7, 8]
+        Метод инициализации
+        :param door_status: Состояние двери (открыта/закрыта)
+        :param door_lock: Наличие замка
+        :param pincode: Пин-код у замка
         """
         self.door_status = door_status
         self.door_lock = door_lock
@@ -34,7 +36,7 @@ class Door:
     def set_pincode(self, code: list) -> None:
         """
         Данный метод описывает процедуру установки пин-кода на дверной замок
-        :param code:
+        :param code: Код, устанавливаемый на замок
         :return:
         """
         if self.door_lock is False:
@@ -57,6 +59,11 @@ class Trashcan:
     20
     """
     def __init__(self, trashcan_capacity, trashcan_occupied: float):
+        """
+        Метод инициализации
+        :param trashcan_capacity: Вместительность мусорной корзины
+        :param trashcan_occupied: Занятый объём мусорной корзины
+        """
         if not trashcan_capacity < 0:
             self.trashcan_capacity = trashcan_capacity
             if not trashcan_capacity < 0:
@@ -110,6 +117,11 @@ class Order:
         ['Бургер', 'Кола 0,5 л', 'Картошка фри', 'Куриный суп']
         """
     def __init__(self, order_list: list, order_value: float):
+        """
+        Метод инициализации
+        :param order_list: Список позиций, заказываемых в ресторане или кафе
+        :param order_value: Цена заказа
+        """
         if not order_value < 0:
             self.order_list = order_list
             self.order_value = order_value
