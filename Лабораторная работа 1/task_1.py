@@ -40,7 +40,7 @@ class Door:
         :return:
         """
         if self.door_lock is False:
-            raise ValueError("It doesn't even has a lock")
+            raise TypeError("It doesn't even has a lock")
         else:
             self.pincode = code
 
@@ -66,12 +66,12 @@ class Trashcan:
         """
         if not trashcan_capacity < 0:
             self.trashcan_capacity = trashcan_capacity
-            if not trashcan_capacity < 0:
+            if not trashcan_occupied < 0:
                 self.trashcan_occupied = trashcan_occupied
             else:
-                raise TypeError("Не бывает отрицательной занятости")
+                raise ValueError("Не бывает отрицательной занятости")
         else:
-            raise TypeError("Не бывает отрицательной вместимости")
+            raise ValueError("Не бывает отрицательной вместимости")
 
     def clear(self) -> None:
         """
@@ -98,7 +98,7 @@ class Trashcan:
         if self.trashcan_occupied >= self.trashcan_capacity:
             unnecessary_trash = self.trashcan_occupied - self.trashcan_capacity
         else:
-            raise TypeError("Мусорная корзина не переполнена!")
+            unnecessary_trash = 0
         return  unnecessary_trash
 
 
