@@ -78,9 +78,8 @@ class VKontakte(Website):
         """
         Метод закрывает сайт
         """
-        if self.status is True:
-            self.status = False
-            self.online = 0
+        self.status = False
+        self.online = 0
 
     def __str__(self):
         return f"Ссылка: {self.link}. Год создания: {self.year}. Статус: {self.status}. Текущий онлайн: {self.online}"

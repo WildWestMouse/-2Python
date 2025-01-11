@@ -1,6 +1,3 @@
-from marshal import dumps
-
-
 class Book:
     """ Базовый класс книги. """
 
@@ -26,9 +23,7 @@ class Book:
 class PaperBook(Book):
     def __init__(self, name: str, author: str, pages: int):
         super().__init__(name, author)
-        if not isinstance(pages, int):
-            raise TypeError
-        self._pages = pages
+        self.pages = pages
 
     @property
     def pages(self):
